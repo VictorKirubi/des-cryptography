@@ -20,7 +20,7 @@ label {
   display: inline-block;
 }
 
-input[type=submit] {
+button[type=submit] {
   background-color: #04AA6D;
   color: white;
   padding: 12px 20px;
@@ -28,10 +28,6 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
 }
 
 .container {
@@ -74,31 +70,34 @@ input[type=submit]:hover {
 
 
 <div class="container">
-  <form action="/action_page.php">
+  <form method="post">
     <div class="row">
-      <div class="col-25">
+      <div>
     </div>
     <div class="row">
-      <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="The encrypted message" style="height:200px"></textarea>
+      <div>
+        <textarea id="encmessage" name="encmessage" placeholder="The encrypted message" style="height:200px" required></textarea>
       </div>
-      <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="The key"  style="height:200px"></textarea>
+      <div>
+        <input id="dkey" name="dkey" placeholder="key" required></input>
+        <input id="ivcode" name="ivcode" placeholder="iv code" required></input>
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Decrypt Message">
-    </div>
-    <div class="row">
-        <div class="col-25">
+        <div>
           <label for="subject">Message sent is: <br></label><br>
         </div>
-        <div class="col-75">
-          <textarea id="subject" name="subject" style="height:200px"></textarea>
+        <div>
+          <textarea id="decmessage" style="height:200px" readonly></textarea>
         </div>
+      </div>
+      <div class="row">
+        <button type="submit" id="decbtn" name="post_decrypt" value="Decrypt Message" onclick="decryptMessage();return false;">Decrypt Message</button>
       </div>
   </form>
 </div>
 
 </body>
 </html>
+
+<script src="main.js"></script>
