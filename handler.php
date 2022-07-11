@@ -34,7 +34,7 @@ function send_email($user, $subject, $body, $altbody) {
     $mail->Password   = Config::SMTP_PASSWORD;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
-    $mail->setFrom('projects@otanga.co.ke', 'Des Messages');
+    $mail->setFrom('projects@kirubi.co.ke', 'Des Messages');
     $mail->addAddress($user);
 
     $mail->isHTML(true);
